@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitZone Fitness Center - Transform Your Body, Strengthen Your Mind</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        
+         :root {
+            --primary: #ff5e14;
+            --secondary: #1e1e1e;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --text: #555;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: var(--secondary);
+            font-weight: 700;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            display: inline-block;
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        /* Header Styles */
+        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s;
+            padding: 20px 0;
+        }
+        
+        header.scrolled {
+            background-color: rgba(30, 30, 30, 0.95);
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--white);
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
+        }
+        /* Hero Banner with Video */
+        
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            padding: 0 20px;
+        }
+        
+        .hero-content h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .hero-btns .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--white);
+        }
+        
+        .hero-btns .btn-secondary:hover {
+            background: var(--white);
+            color: var(--secondary);
+        }
+        /* About Section */
+        
+        .about {
+            background: var(--light);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+        }
+        
+        .about-features {
+            margin-top: 30px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .feature-text h4 {
+            margin-bottom: 5px;
+        }
+        /* Trainers Section */
+        
+        .trainers {
+            background: var(--white);
+        }
+        
+        .trainers-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .trainer-card {
+            background: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .trainer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .trainer-img {
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .trainer-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .trainer-card:hover .trainer-img img {
+            transform: scale(1.1);
+        }
+        
+        .trainer-info {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .trainer-info h3 {
+            margin-bottom: 5px;
+        }
+        
+        .trainer-info span {
+            color: var(--primary);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 15px;
+        }
+        
+        .trainer-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .trainer-social a {
+            width: 35px;
+            height: 35px;
+            background: var(--secondary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .trainer-social a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        /* Classes Section */
+        
+        .classes {
+            background: var(--light);
+        }
+        
+        .classes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .class-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .class-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .class-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .class-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .class-card:hover .class-img img {
+            transform: scale(1.1);
+        }
+        
+        .class-time {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary);
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .class-info {
+            padding: 25px;
+        }
+        
+        .class-info h3 {
+            margin-bottom: 10px;
+        }
+        
+        .class-trainer {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .class-trainer img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .class-trainer span {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        
+        .class-info p {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .class-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .class-price span {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        /* Pricing Section */
+        
+        .pricing {
+            background: var(--white);
+        }
+        
+        .pricing-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .pricing-card {
+            background: var(--light);
+            border-radius: 10px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pricing-card.popular {
+            border: 2px solid var(--primary);
+        }
+        
+        .popular-tag {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--primary);
+            color: var(--white);
+            padding: 5px 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 12px;
+            transform: rotate(45deg) translate(30%, -50%);
+            transform-origin: center;
+        }
+        
+        .pricing-card h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .price {
+            font-size: 50px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .price span {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--text);
+        }
+        
+        .pricing-features {
+            margin-bottom: 30px;
+        }
+        
+        .pricing-features li {
+            list-style: none;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .pricing-features li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+        
+        .pricing-features li.disabled {
+            opacity: 0.5;
+        }
+        
+        .pricing-features li.disabled::before {
+            content: '\f00d';
+        }
+        /* Footer */
+        
+        footer {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 80px 0 0;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            color: var(--white);
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-col p {
+            margin-bottom: 20px;
+        }
+        
+        .footer-links li {
+            list-style: none;
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        .footer-contact li {
+            list-style: none;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .footer-contact i {
+            color: var(--primary);
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .footer-social a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .footer-newsletter input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--white);
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        
+        .footer-newsletter input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px 0;
+            text-align: center;
+        }
+        /* Responsive Styles */
+        
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 48px;
+            }
+            .about-content {
+                flex-direction: column;
+            }
+            .about-img,
+            .about-text {
+                flex: none;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--secondary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s;
+            }
+            .nav-links.active {
+                left: 0;
+            }
+            .nav-links li {
+                margin: 15px 0;
+            }
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .section {
+                padding: 60px 0;
+            }
+            .section-title h2 {
+                font-size: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 28px;
+            }
+            .hero-content p {
+                font-size: 16px;
+            }
+            .section-title h2 {
+                font-size: 24px;
+            }
+        }
+        /* Animations */
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fadeInUp {
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">Fit<span>Zone</span></a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#trainers">Trainers</a></li>
+                <li><a href="#classes">Classes</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="http://localhost/Fitzone-Fitness/login.php">Register</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Banner with Video -->
+    <section class="hero" id="home">
+        <video class="hero-video" autoplay muted loop>
+            <source src="./img/video-banner.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <div class="container">
+                <h1 class="fadeInUp">Transform Your Body, Strengthen Your Mind</h1>
+                <p class="fadeInUp delay-1">At FitZone Fitness Center, we provide world-class training facilities and personalized programs to help you achieve your fitness goals.</p>
+                <div class="hero-btns fadeInUp delay-2">
+                    <a href="#pricing" class="btn">Join Now</a>
+                    <a href="#classes" class="btn btn-secondary">Our Classes</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About FitZone</h2>
+                <p>Discover what makes us different</p>
+            </div>
+            <div class="about-content">
+                <div class="about-img fadeInUp">
+                    <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1075&q=80" alt="FitZone Gym">
+                </div>
+                <div class="about-text fadeInUp delay-1">
+                    <h3>Your Journey Starts Here</h3>
+                    <p>FitZone Fitness Center was founded in 2010 with a simple mission: to help people transform their lives through fitness. Our state-of-the-art facility is designed to accommodate everyone from beginners to elite athletes.</p>
+                    <p>We believe fitness should be accessible, enjoyable, and life-changing. Our expert trainers are dedicated to helping you reach your goals in a supportive, motivating environment.</p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Modern Equipment</h4>
+                                <p>Top-of-the-line cardio and strength training equipment from leading brands.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Certified Trainers</h4>
+                                <p>Our trainers hold multiple certifications and have years of experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trainers Section -->
+    <section class="section trainers" id="trainers">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Expert Trainers</h2>
+                <p>Meet the professionals who will guide your journey</p>
+            </div>
+            <div class="trainers-container">
+                <div class="trainer-card fadeInUp">
+                    <div class="trainer-img">
+                        <img src="https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80" alt="Trainer 1">
+                    </div>
+                    <div class="trainer-info">
+                        <h3>Michael Johnson</h3>
+                        <span>Strength Coach</span>
+                        <p>Specializes in powerlifting and functional strength training with 10+ years experience.</p>
+                        <div class="trainer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="trainer-card fadeInUp delay-1">
+                    <div class="trainer-img">
+                        <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Trainer 2">
+                    </div>
+                    <div class="trainer-info">
+                        <h3>Sarah Williams</h3>
+                        <span>Yoga Instructor</span>
+                        <p>Certified in Hatha, Vinyasa, and Yin yoga with a focus on mindfulness and flexibility.</p>
+                        <div class="trainer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="trainer-card fadeInUp delay-2">
+                    <div class="trainer-img">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Trainer 3">
+                    </div>
+                    <div class="trainer-info">
+                        <h3>David Chen</h3>
+                        <span>HIIT Specialist</span>
+                        <p>Creates high-intensity programs that deliver maximum results in minimal time.</p>
+                        <div class="trainer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classes Section -->
+    <section class="section classes" id="classes">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Classes</h2>
+                <p>Find the perfect workout for your goals</p>
+            </div>
+            <div class="classes-container">
+                <div class="class-card fadeInUp">
+                    <div class="class-img">
+                        <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Yoga Class">
+                        <span class="class-time">7:00 - 8:00 AM</span>
+                    </div>
+                    <div class="class-info">
+                        <h3>Yoga Flow</h3>
+                        <div class="class-trainer">
+                            <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Trainer">
+                            <span>Sarah Williams</span>
+                        </div>
+                        <p>A dynamic sequence of poses that builds strength, flexibility, and mindfulness.</p>
+                        <div class="class-price">
+                            <a href="http://localhost/Fitzone-Fitness/login.php" class="btn">Join Class</a>
+                            <span>$25</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="class-card fadeInUp delay-1">
+                    <div class="class-img">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Calisthenics Class">
+                        <span class="class-time">6:00 - 7:00 PM</span>
+                    </div>
+                    <div class="class-info">
+                        <h3>Calisthenics</h3>
+                        <div class="class-trainer">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Trainer">
+                            <span>David Chen</span>
+                        </div>
+                        <p>Bodyweight exercises to build functional strength and impressive control.</p>
+                        <div class="class-price">
+                            <a href="http://localhost/Fitzone-Fitness/login.php" class="btn">Join Class</a>
+                            <span>$20</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="class-card fadeInUp delay-2">
+                    <div class="class-img">
+                        <img src="https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80" alt="Legs Class">
+                        <span class="class-time">5:00 - 6:00 PM</span>
+                    </div>
+                    <div class="class-info">
+                        <h3>Legs & Core</h3>
+                        <div class="class-trainer">
+                            <img src="https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80" alt="Trainer">
+                            <span>Michael Johnson</span>
+                        </div>
+                        <p>Targeted workout to build lower body strength and develop a rock-solid core.</p>
+                        <div class="class-price">
+                            <a href="http://localhost/Fitzone-Fitness/login.php" class="btn">Join Class</a>
+                            <span>$22</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="class-card fadeInUp delay-3">
+                    <div class="class-img">
+                        <img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1131&q=80" alt="Shoulders Class">
+                        <span class="class-time">7:00 - 8:00 PM</span>
+                    </div>
+                    <div class="class-info">
+                        <h3>Shoulders & Arms</h3>
+                        <div class="class-trainer">
+                            <img src="https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80" alt="Trainer">
+                            <span>Michael Johnson</span>
+                        </div>
+                        <p>Sculpt and strengthen your upper body with targeted exercises and techniques.</p>
+                        <div class="class-price">
+                            <a href="http://localhost/Fitzone-Fitness/login.php" class="btn">Join Class</a>
+                            <span>$20</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section pricing" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pricing Plans</h2>
+                <p>Choose the plan that fits your lifestyle</p>
+            </div>
+            <div class="pricing-container">
+                <div class="pricing-card fadeInUp">
+                    <h3>Basic</h3>
+                    <div class="price">$29<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Access to gym facilities</li>
+                        <li>Standard equipment</li>
+                        <li>Open gym hours</li>
+                        <li class="disabled">Group classes</li>
+                        <li class="disabled">Personal training</li>
+                        <li class="disabled">Locker room access</li>
+                    </ul>
+                    <a href="#" class="btn">Get Started</a>
+                </div>
+                <div class="pricing-card fadeInUp delay-1 popular">
+                    <div class="popular-tag">Popular</div>
+                    <h3>Premium</h3>
+                    <div class="price">$59<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Access to gym facilities</li>
+                        <li>All equipment</li>
+                        <li>Extended gym hours</li>
+                        <li>Unlimited group classes</li>
+                        <li>2 Personal training sessions</li>
+                        <li class="disabled">Locker room access</li>
+                    </ul>
+                    <a href="#" class="btn">Get Started</a>
+                </div>
+                <div class="pricing-card fadeInUp delay-2">
+                    <h3>Elite</h3>
+                    <div class="price">$99<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>24/7 gym access</li>
+                        <li>All premium equipment</li>
+                        <li>Unlimited group classes</li>
+                        <li>5 Personal training sessions</li>
+                        <li>Locker room access</li>
+                        <li>Nutrition consultation</li>
+                    </ul>
+                    <a href="#" class="btn">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>About FitZone</h3>
+                <p>FitZone Fitness Center is dedicated to helping you achieve your fitness goals through state-of-the-art facilities, expert trainers, and a supportive community.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#trainers">Trainers</a></li>
+                    <li><a href="#classes">Classes</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#">Register</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Info</h3>
+                <ul class="footer-contact">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>No.45 Kandy Road, Kurunegala</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <span>+94 11 234 554</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>info@fitzone.com</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-clock"></i>
+                        <span>Mon-Fri: 5:00 AM - 11:00 PM<br>Sat-Sun: 7:00 AM - 9:00 PM</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Newsletter</h3>
+                <p>Subscribe to our newsletter for fitness tips, special offers, and updates.</p>
+                <form class="footer-newsletter">
+                    <input type="email" placeholder="Your Email Address">
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2023 FitZone Fitness Center. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ?
+                '<i class="fas fa-times"></i>' :
+                '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.fadeInUp');
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (elementPosition < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Initialize animations
+        document.querySelectorAll('.fadeInUp').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+    </script>
+</body>
+
+</html>
